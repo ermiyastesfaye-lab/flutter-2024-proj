@@ -63,4 +63,4 @@ Allow farmers to access a marketplace where they can sell crops and agricultural
 | Ermiyas Tesfaye | UGR/6782/14 |
 | Naol Gezahegne | UGR/2063/14 |
 | Ahmed Muhammed Seid | UGR/8920/14 |
-| Bikila Tariku | UGR/----/14 |
+| Bikila Tariku | UGR/8089/14 |
