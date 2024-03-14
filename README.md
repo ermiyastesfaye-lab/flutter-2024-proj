@@ -25,19 +25,19 @@ The Flutter app is designed to help farmers manage their crops and connect with 
 
 Farmers can track the lifecycle of their crops, from planting to harvest. A farmer can be able to: Create a new crop: Farmers can add a new crop including crop type, planting date, expected harvest date, and the planting field. The server generates a unique ID for the new crop.
 
-**Read crop details**: Farmers can access specific crop details using the unique crop ID. The server provides the details of the requested crop.
+**Read crop details**:  Farmers can access specific crop details using the unique crop ID. The server provides the details of the requested crop.
 
-**Update crop details**: Farmers can modify crop details, such as the expected harvest date. The server returns the updated crop details.
+**Update crop details**:  Farmers can modify crop details, such as the expected harvest date. The server returns the updated crop details.
 
-**Delete crop entry**: Farmers can remove a crop entry, for instance, after the harvest and sale of the crop. The server confirms the deletion.
+**Delete crop entry**:  Farmers can remove a crop entry, for instance, after the harvest and sale of the crop. The server confirms the deletion.
 
-**List all crops**: Farmers can retrieve a list of all their crops. The server returns a list containing details of all crops.
+**List all crops**:  Farmers can retrieve a list of all their crops. The server returns a list containing details of all crops.
 
 ## Feature 2
 
 Allow farmers to access a marketplace where they can sell crops and agricultural products and also allows buyers to view comprehensive details about each product before making a purchase decision.
 
-## Farmer Role
+### Farmer Role
 
 - Farmers are the primary users who manage crops, view details, and handle orders.
     - Permissions:
@@ -47,7 +47,7 @@ Allow farmers to access a marketplace where they can sell crops and agricultural
         - Select "Farmer" role during registration.
         - Provide details; system assigns "Farmer" role post-registration.
 
-## Buyer Role
+### Buyer Role
 
 - Buyers purchase crops directly from farmers.
     - Permissions:
