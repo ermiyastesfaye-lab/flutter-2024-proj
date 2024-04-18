@@ -16,7 +16,7 @@ class ScreenTwo extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         constraints: const BoxConstraints(maxWidth: 700.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Back(),
             const Logo(),
