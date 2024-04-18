@@ -41,7 +41,7 @@ class ScreenOne extends StatelessWidget {
               ],
             ),
             const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
                   "List",
@@ -54,10 +54,10 @@ class ScreenOne extends StatelessWidget {
               child: GridView.count(
                 crossAxisCount: 2,
                 children: [
-                  gridItem('assets/fruits.jpg', 'Wheat', 12.00),
-                  gridItem('assets/fruits2.jpg', 'Corn', 15.50),
-                  gridItem('assets/agri.jpg', 'Barley', 8.99),
-                  gridItem('assets/agri2.jpg', 'Rice', 18.25),
+                  gridItem('assets/fruits.jpg', 'Wheat', 12),
+                  gridItem('assets/fruits2.jpg', 'Corn', 15),
+                  gridItem('assets/agri.jpg', 'Barley', 8),
+                  gridItem('assets/agri2.jpg', 'Rice', 18),
                 ],
               ),
             ),
@@ -68,15 +68,34 @@ class ScreenOne extends StatelessWidget {
     );
   }
 
-  Widget gridItem(String imagePath, String name, double price) {
+  Widget gridItem(String imagePath, String name, int amount) {
     return Container(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(10.0),
       child: Column(
         children: [
-          Image.asset(imagePath, width: 100, height: 100),
-          Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
-          Text('\$${price.toStringAsFixed(2)}',
-              style: const TextStyle(fontSize: 12.0)),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10.0),
+            child: Image.asset(
+              imagePath,
+              width: 100,
+              height: 100,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                name,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(width: 10.0),
+              Text(
+                '${amount.toStringAsFixed(0)}',
+                style: const TextStyle(fontSize: 12.0),
+              ),
+            ],
+          ),
         ],
       ),
     );

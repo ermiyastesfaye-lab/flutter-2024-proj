@@ -11,8 +11,8 @@ class Header extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Order Management',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          'Crop Management',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
         ),
       ],
     );

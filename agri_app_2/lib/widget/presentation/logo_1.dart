@@ -9,7 +9,15 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset('assets/Images/crops.jpg', width: 350),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10.0),
+          child: Image.asset(
+            'assets/fruits.jpg',
+            width: 350,
+            height: 150,
+            fit: BoxFit.cover,
+          ),
+        ),
       ],
     );
   }
