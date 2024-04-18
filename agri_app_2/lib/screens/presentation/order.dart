@@ -24,111 +24,117 @@ class OrderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const AppBarWidget(),
-        drawer: const MenuBarWidget(),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Image.asset(
-                'assets/fruits.jpg', // Adjust the path as per your project structure
-                height: 200,
-                width: 500, // Adjust height as needed
+      appBar: const AppBarWidget(),
+      drawer: const MenuBarWidget(),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Image.asset(
+              'assets/fruits.jpg', // Adjust the path as per your project structure
+              height: 200,
+              width: 500, // Adjust height as needed
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.account_circle, // Change to the desired profile icon
+                size: 86.0, // Adjust size as needed
+                color: Colors.black87, // Adjust color as needed
               ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.account_circle, // Change to the desired profile icon
-                  size: 86.0, // Adjust size as needed
-                  color: Colors.black87, // Adjust color as needed
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Add functionality for the +Add button
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green, // Background color
                 ),
+                child: Text('Connect'),
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Add functionality for the +Add button
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green, // Background color
-                  ),
-                  child: Text('Connect'),
+            ),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Color.fromARGB(227, 238, 235, 235)),
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    border:
-                        Border.all(color: Color.fromARGB(227, 238, 235, 235)),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          'Crop Details',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        'Crop Details',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      ListTileWithButton(
-                        labelText: 'Crop Name: ',
-                        valueText: 'Corn', // Example crop name
-                        onPressed: () {
-                          // Add functionality for the button
-                        },
-                      ),
-                      ListTileWithButton(
-                        labelText: 'Crop Type: ',
-                        valueText: 'Grain', // Example crop type
-                        onPressed: () {
-                          // Add functionality for the button
-                        },
-                      ),
-                      ListTileWithButton(
-                        labelText: 'Price: ETB ',
-                        valueText: '200.00ETB', // Example price
-                        onPressed: () {
-                          // Add functionality for the button
-                        },
-                      ),
-                      QualityListItem(
-                        labelText: 'Quality: ',
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
+                    ),
+                    ListTileWithButton(
+                      labelText: 'Crop Name: ',
+                      valueText: 'Corn', // Example crop name
                       onPressed: () {
-                        // Add functionality for the Remove button
+                        // Add functionality for the button
                       },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(
-                            255, 45, 186, 13), // Background color
-                      ),
-                      child: Text(
-                        'Order',
-                        style: TextStyle(color: Colors.white), // Text color
-                      ),
+                    ),
+                    ListTileWithButton(
+                      labelText: 'Crop Type: ',
+                      valueText: 'Grain', // Example crop type
+                      onPressed: () {
+                        // Add functionality for the button
+                      },
+                    ),
+                    ListTileWithButton(
+                      labelText: 'Price: ETB ',
+                      valueText: '200.00ETB', // Example price
+                      onPressed: () {
+                        // Add functionality for the button
+                      },
+                    ),
+                    QualityListItem(
+                      labelText: 'Quality: ',
                     ),
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      // Add functionality for the Remove button
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor:
+                          Color.fromARGB(255, 45, 186, 13), // Background color
+                    ),
+                    child: Text(
+                      'Order',
+                      style: TextStyle(color: Colors.white), // Text color
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-        bottomNavigationBar: const BottomNavBarWidget());
+      ),
+      bottomNavigationBar: const BottomNavBarWidget(),
+      floatingActionButton: IconButton(
+        icon: Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.pop(context); // Navigate back to the previous page
+        },
+      ),
+    );
   }
 }
 
