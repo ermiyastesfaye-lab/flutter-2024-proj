@@ -11,82 +11,90 @@ class ScreenTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const AppBarWidget(),
-        body: Container(
-          padding: const EdgeInsets.all(16.0),
-          constraints:
-              const BoxConstraints(maxWidth: 700.0), // Set a maximum width
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Back(),
-              Logo(),
-              Header(),
-              const SizedBox(height: 16),
-              const Text(
-                'Orders',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-              const SizedBox(height: 16), // Add spacing between Orders and list
-              Expanded(
-                // Wrap the list view with Expanded for vertical space filling
-                child: ListView.separated(
-                  shrinkWrap: true, // Prevent excessive scrolling
-                  itemCount: 3, // Number of list items
-                  separatorBuilder: (context, index) => const Divider(),
-                  itemBuilder: (context, index) {
-                    String itemName;
-                    if (index == 0) {
+      appBar: const AppBarWidget(),
+      body: Container(
+        padding: const EdgeInsets.all(16.0),
+        constraints: const BoxConstraints(maxWidth: 700.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Back(),
+            const Logo(),
+            const Header(text: 'Order Management'),
+            const SizedBox(height: 16),
+            const Text(
+              'Orders',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+            const SizedBox(height: 16), // Add spacing between Orders and list
+            Expanded(
+              child: ListView.separated(
+                shrinkWrap: true,
+                itemCount: 3,
+                separatorBuilder: (context, index) => const Divider(),
+                itemBuilder: (context, index) {
+                  String itemName;
+                  String imagePath;
+                  switch (index) {
+                    case 0:
                       itemName = 'Wheat(2)';
-                    } else if (index == 2) {
-                      itemName = 'Barley(2)';
-                    } else {
+                      imagePath = 'assets/fruits.jpg';
+                      break;
+                    case 1:
                       itemName = 'Corn(2)';
-                    }
-                    return Row(
-                      children: [
-                        Image.asset(
-                          'assets/fruits${index + 1}.jpg', // Use placeholders
-                          width: 100,
-                          height: 100,
-                        ),
-                        const SizedBox(
-                            width: 16), // Add space between image and text
-                        Expanded(
-                          child: Row(
-                            children: [
-                              Column(
-                                // Column for text
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    itemName,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                      imagePath = 'assets/fruits2.jpg';
+                      break;
+                    case 2:
+                      itemName = 'Barley(2)';
+                      imagePath = 'assets/agri.jpg';
+                      break;
+                    default:
+                      itemName = 'Unknown';
+                      imagePath = 'assets/agri2.jpg';
+                  }
+                  return Row(
+                    children: [
+                      Image.asset(
+                        imagePath,
+                        width: 100,
+                        height: 100,
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Row(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  itemName,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                ],
-                              ),
-                              const Spacer(),
-                              OutlinedButton(
-                                onPressed: () {},
-                                style: OutlinedButton.styleFrom(
-                                  backgroundColor: Colors.green[800],
-                                  foregroundColor: Colors.white,
                                 ),
-                                child: const Text('Sell'),
+                              ],
+                            ),
+                            const Spacer(),
+                            OutlinedButton(
+                              onPressed: () {},
+                              style: OutlinedButton.styleFrom(
+                                backgroundColor: Colors.green[800],
+                                foregroundColor: Colors.white,
                               ),
-                            ],
-                          ),
+                              child: const Text('Sell'),
+                            ),
+                          ],
                         ),
-                      ],
-                    );
-                  },
-                ),
+                      ),
+                    ],
+                  );
+                },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        bottomNavigationBar: const BottomNavBarWidget());
+      ),
+      bottomNavigationBar: const BottomNavBarWidget(),
+    );
   }
 }
