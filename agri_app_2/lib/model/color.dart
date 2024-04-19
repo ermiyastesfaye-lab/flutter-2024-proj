@@ -8,3 +8,4 @@ class MyColor {
   final Color secondary;
   final Color tertiary;
 }
+

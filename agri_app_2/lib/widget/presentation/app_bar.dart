@@ -1,5 +1,7 @@
 import 'package:agri_app_2/data/dummy_data.dart';
+import 'package:agri_app_2/widget/presentation/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSize {
   const AppBarWidget({super.key});
@@ -12,6 +14,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSize {
 
   @override
   Widget build(context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return AppBar(
         title: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -20,7 +23,9 @@ class AppBarWidget extends StatelessWidget implements PreferredSize {
           'AgriConnect',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
-        Icon(Icons.shopping_cart, color: myColor.tertiary)
+        Icon(Icons.shopping_cart, color: themeProvider.getTheme == darkTheme
+                              ? Colors.white
+                              : const Color.fromARGB(255, 103, 103, 103))
       ],
     ));
   }

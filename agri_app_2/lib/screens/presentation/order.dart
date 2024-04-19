@@ -1,4 +1,8 @@
+import 'package:agri_app_2/data/dummy_data.dart';
+import 'package:agri_app_2/widget/presentation/Logo.dart';
+import 'package:agri_app_2/widget/presentation/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'edit.dart';
 import 'update.dart';
 import 'order.dart';
@@ -7,23 +11,201 @@ import 'package:agri_app_2/widget/presentation/bottom_nav_bar.dart';
 import 'package:agri_app_2/widget/presentation/menu_bar.dart';
 import 'package:flutter/material.dart';
 
-class OrderPageWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        scaffoldBackgroundColor: Color.fromARGB(
-            255, 221, 220, 221), // Set background color to purple
-      ),
-      home: OrderPage(),
-    );
-  }
-}
-
 class OrderPage extends StatelessWidget {
+  const OrderPage({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
+<<<<<<< HEAD
+        appBar: const AppBarWidget(),
+        drawer: const MenuBarWidget(),
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Opacity(
+                opacity: 0.5,
+                child: IgnorePointer(
+                    child: Column(
+                  children: [
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 19, vertical: 10),
+                        child: LogoWidget(logo: logos[0]),
+                      ),
+                    ),
+                    Center(
+                      child: SizedBox(
+                        width: 300,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const OrderPage()),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                myColor.secondary, // Background color
+                          ),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.add, color: Colors.white, size: 15),
+                              Text(
+                                'Add',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 15),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              Container(
+                padding: const EdgeInsets.all(15),
+                height: 460,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                      color: const Color.fromARGB(227, 238, 235, 235)),
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.white,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Crop Details',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: myColor.tertiary,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Crop Name',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: myColor.tertiary,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 40,
+                        ),
+                        Text(
+                          'Corn',
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: myColor.primary,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Crop Type',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: myColor.tertiary,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 40,
+                        ),
+                        Text(
+                          'Zea mays',
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: myColor.primary,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Price(ETB)',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: myColor.tertiary,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 40,
+                        ),
+                        Text(
+                          'ETB 200',
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: myColor.primary,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Quality',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: myColor.tertiary,
+                          ),
+                        ),
+                        const SizedBox(width: 150, child: QualityListItem()),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    Center(
+                      child: SizedBox(
+                        width: 300,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const OrderPage()),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: myColor.secondary,
+                            // Background color
+                          ),
+                          child: const Text(
+                            'Order',
+                            style: TextStyle(color: Colors.white, fontSize: 15),
+                          ),
+                        ),
+                      ),
+=======
       appBar: const AppBarWidget(),
       drawer: const MenuBarWidget(),
       body: SingleChildScrollView(
@@ -98,6 +280,7 @@ class OrderPage extends StatelessWidget {
                     ),
                     QualityListItem(
                       labelText: 'Quality: ',
+>>>>>>> c3ea6556788d9626833b326dc0d3ff0f4df31c3b
                     ),
                   ],
                 ),
@@ -138,68 +321,28 @@ class OrderPage extends StatelessWidget {
   }
 }
 
-class ListTileWithButton extends StatelessWidget {
-  final String labelText;
-  final String valueText;
-  final Function()? onPressed;
-
-  const ListTileWithButton({
-    required this.labelText,
-    required this.valueText,
-    this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Row(
-        children: [
-          Text(
-            labelText,
-            style: TextStyle(
-              color: Color.fromARGB(255, 9, 2, 2), // Text color
-            ),
-          ),
-          Spacer(), // Add space between label and value
-          ElevatedButton(
-            onPressed: onPressed,
-            child: Text(valueText),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.grey[300], // Background color
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class QualityListItem extends StatefulWidget {
-  final String labelText;
-
-  const QualityListItem({
-    required this.labelText,
-  });
+  const QualityListItem({super.key});
 
   @override
-  _QualityListItemState createState() => _QualityListItemState();
+  State<QualityListItem> createState() => _QualityListItemState();
 }
 
 class _QualityListItemState extends State<QualityListItem> {
-  int _quality = 85; // Initial quality value
+  int _quantity = 0; // Initial quality value
 
   void _incrementQuality() {
     setState(() {
-      if (_quality < 100) {
-        _quality++;
+      if (_quantity < 100) {
+        _quantity++;
       }
     });
   }
 
   void _decrementQuality() {
     setState(() {
-      if (_quality > 0) {
-        _quality--;
+      if (_quantity > 0) {
+        _quantity--;
       }
     });
   }
@@ -209,34 +352,20 @@ class _QualityListItemState extends State<QualityListItem> {
     return ListTile(
       title: Row(
         children: [
-          Text(
-            widget.labelText,
-            style: TextStyle(
-              color: Color.fromARGB(255, 9, 2, 2), // Text color
-            ),
-          ),
-          Spacer(), // Add space between label and value
-          ElevatedButton(
-            onPressed: _incrementQuality,
-            child: Text('+'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.grey[300], // Background color
-            ),
-          ),
-          SizedBox(width: 8), // Add spacing between buttons
-          Text(
-            '$_quality',
-            style: TextStyle(
-              color: Color.fromARGB(255, 9, 2, 2), // Text color
-            ),
-          ),
-          SizedBox(width: 8), // Add spacing between buttons
-          ElevatedButton(
+          IconButton(
             onPressed: _decrementQuality,
-            child: Text('-'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.grey[300], // Background color
-            ),
+            icon: const Icon(Icons.remove),
+          ),
+          Text(
+            '$_quantity',
+            style: TextStyle(
+                fontSize: 20,
+                color: myColor.primary,
+                fontWeight: FontWeight.bold), // Text color
+          ),
+          IconButton(
+            onPressed: _incrementQuality,
+            icon: const Icon(Icons.add),
           ),
         ],
       ),
