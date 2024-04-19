@@ -1,17 +1,22 @@
+import 'package:agri_app_2/data/dummy_data.dart';
+import 'package:agri_app_2/widget/presentation/Logo.dart';
+import 'package:agri_app_2/widget/presentation/menu_bar.dart';
+import 'package:agri_app_2/widget/presentation/order_management_list.dart';
+import 'package:agri_app_2/widget/presentation/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:agri_app_2/widget/presentation/back.dart';
 import 'package:agri_app_2/widget/presentation/app_bar.dart';
 import 'package:agri_app_2/widget/presentation/bottom_nav_bar.dart';
-import 'package:agri_app_2/widget/presentation/header.dart';
-import 'package:agri_app_2/widget/presentation/logo_1.dart';
+import 'package:provider/provider.dart';
 
-class ScreenThree extends StatelessWidget {
-  const ScreenThree({super.key});
+class MarketPlace extends StatelessWidget {
+  const MarketPlace({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       appBar: const AppBarWidget(),
+      drawer: const MenuBarWidget(),
       body: Container(
         padding:
             const EdgeInsets.all(16.0), // Add some padding around the content
@@ -20,29 +25,35 @@ class ScreenThree extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Back(),
-            const Logo(),
-            const Header(text: 'Order Management'),
-            const Row(
+            Center(
+              child: LogoWidget(logo: logos[1]),
+            ),
+            const SizedBox(height: 40),
+            Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(
-                  "List",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                )
+                Text('Order',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: themeProvider.getTheme == darkTheme
+                            ? Colors.white
+                            : const Color.fromARGB(255, 103, 103, 103))),
+                const SizedBox(height: 30),
               ],
             ),
-            const Divider(),
+            const SizedBox(
+              height: 20,
+            ),
             Expanded(
               child: GridView.count(
-                crossAxisCount: 2,
-                children: [
-                  gridItem('assets/fruits.jpg', 'Wheat', 12),
-                  gridItem('assets/fruits2.jpg', 'Corn', 15),
-                  gridItem('assets/agri.jpg', 'Barley', 8),
-                  gridItem('assets/agri2.jpg', 'Rice', 18),
-                ],
-              ),
+                  crossAxisSpacing: 15,
+                  mainAxisSpacing: 20,
+                  crossAxisCount: 2,
+                  children: [
+                    for (final crop in availableCrop3)
+                      OrderListManagement(crop: crop)
+                  ]),
             ),
           ],
         ),

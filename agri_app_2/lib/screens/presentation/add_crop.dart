@@ -1,13 +1,14 @@
 import 'package:agri_app_2/data/dummy_data.dart';
+import 'package:agri_app_2/screens/presentation/crop_management.dart';
 import 'package:agri_app_2/widget/presentation/Logo.dart';
 import 'package:agri_app_2/widget/presentation/theme.dart';
-import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/material.dart';
 import 'package:agri_app_2/widget/presentation/app_bar.dart';
 import 'package:agri_app_2/widget/presentation/menu_bar.dart';
 
-class EditPage extends StatelessWidget {
-  const EditPage({super.key});
+class AddCrop extends StatelessWidget {
+  const AddCrop({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,41 +24,40 @@ class EditPage extends StatelessWidget {
             Opacity(
               opacity: 0.5,
               child: IgnorePointer(
-                child: Column(
-                  children: [
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 19, vertical: 10),
-                        child: LogoWidget(logo: logos[0]),
-                      ),
+                  child: Column(
+                children: [
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 19, vertical: 10),
+                      child: LogoWidget(logo: logos[0]),
                     ),
-                    Center(
-                      child: SizedBox(
-                        width: 300,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                myColor.secondary, // Background color
-                          ),
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.add, color: Colors.white, size: 15),
-                              Text(
-                                'Add',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 15),
-                              ),
-                            ],
-                          ),
+                  ),
+                  Center(
+                    child: SizedBox(
+                      width: 300,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              myColor.secondary, // Background color
+                        ),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.add, color: Colors.white, size: 15),
+                            Text(
+                              'Add',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                  ],
-                ),
-              ),
+                  ),
+                ],
+              )),
             ),
             const SizedBox(
               height: 40,
@@ -99,15 +99,16 @@ class EditPage extends StatelessWidget {
                               : const Color.fromARGB(255, 103, 103, 103),
                         ),
                       ),
-                      const SizedBox(
-                        width: 40,
-                      ),
-                      Text(
-                        'Corn',
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: myColor.primary,
-                            fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: 200,
+                        height: 35,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: myColor.primary),
+                            borderRadius: BorderRadius.circular(10),
+                          )),
+                        ),
                       )
                     ],
                   ),
@@ -126,15 +127,16 @@ class EditPage extends StatelessWidget {
                               : const Color.fromARGB(255, 103, 103, 103),
                         ),
                       ),
-                      const SizedBox(
-                        width: 40,
-                      ),
-                      Text(
-                        'Zea mays',
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: myColor.primary,
-                            fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: 200,
+                        height: 35,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: myColor.primary),
+                            borderRadius: BorderRadius.circular(10),
+                          )),
+                        ),
                       )
                     ],
                   ),
@@ -153,15 +155,16 @@ class EditPage extends StatelessWidget {
                               : const Color.fromARGB(255, 103, 103, 103),
                         ),
                       ),
-                      const SizedBox(
-                        width: 40,
-                      ),
-                      Text(
-                        '14/04/2024',
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: myColor.primary,
-                            fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: 200,
+                        height: 35,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: myColor.primary),
+                            borderRadius: BorderRadius.circular(10),
+                          )),
+                        ),
                       )
                     ],
                   ),
@@ -180,15 +183,16 @@ class EditPage extends StatelessWidget {
                               : const Color.fromARGB(255, 103, 103, 103),
                         ),
                       ),
-                      const SizedBox(
-                        width: 40,
-                      ),
-                      Text(
-                        '14/04/2024',
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: myColor.primary,
-                            fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: 200,
+                        height: 35,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: myColor.primary),
+                            borderRadius: BorderRadius.circular(10),
+                          )),
+                        ),
                       )
                     ],
                   ),
@@ -207,59 +211,54 @@ class EditPage extends StatelessWidget {
                               : const Color.fromARGB(255, 103, 103, 103),
                         ),
                       ),
-                      const SizedBox(
-                        width: 40,
-                      ),
-                      Text(
-                        'ETB 200',
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: myColor.primary,
-                            fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: 200,
+                        height: 35,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: myColor.primary),
+                            borderRadius: BorderRadius.circular(10),
+                          )),
+                        ),
                       )
                     ],
                   ),
                   const SizedBox(
                     height: 50,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SizedBox(
-                        width: 150,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/updateCrop');
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: myColor.secondary,
-                            // Background color
-                          ),
-                          child: const Text(
-                            'Edit',
-                            style: TextStyle(color: Colors.white, fontSize: 15),
-                          ),
+                  Center(
+                    child: SizedBox(
+                      width: 300,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const CropMangement()),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: themeProvider.getTheme == darkTheme
+                              ? const Color.fromARGB(255, 0, 64, 0)
+                              : const Color.fromARGB(
+                                  255, 33, 119, 50), // Background color
+                        ),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.add, color: Colors.white, size: 15),
+                            Text(
+                              'Add',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                          ],
                         ),
                       ),
-                      SizedBox(
-                        width: 150,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/updateCrop');
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: myColor.secondary,
-                            // Background color
-                          ),
-                          child: const Text(
-                            'Remove',
-                            style: TextStyle(color: Colors.white, fontSize: 15),
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ], // Removed extra comma here
+                ],
               ),
             ),
           ],

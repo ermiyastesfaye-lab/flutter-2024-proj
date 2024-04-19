@@ -1,12 +1,13 @@
 import 'package:agri_app_2/screens/presentation/dash_board.dart';
-import 'package:agri_app_2/screens/presentation/order_display.dart';
+import 'package:agri_app_2/screens/presentation/crop_management.dart';
+import 'package:agri_app_2/screens/presentation/market_place.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBarWidget extends StatefulWidget {
-  const BottomNavBarWidget({Key? key}) : super(key: key);
+  const BottomNavBarWidget({super.key});
 
   @override
-  _BottomNavBarWidgetState createState() => _BottomNavBarWidgetState();
+  State<BottomNavBarWidget> createState() => _BottomNavBarWidgetState();
 }
 
 class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
@@ -23,11 +24,11 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
           Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => const DashBoardScreen()));
         } else if (index == 1) {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const OrderDisplayScreen()));
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const CropMangement()));
         } else {
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const DashBoardScreen()));
+              MaterialPageRoute(builder: (context) => const MarketPlace()));
         }
       },
       currentIndex: _selectedIndex, // Set the current index

@@ -1,5 +1,7 @@
 import 'package:agri_app_2/model/color.dart';
+import 'package:agri_app_2/model/cop_management_list.dart';
 import 'package:agri_app_2/model/order_display.dart';
+import 'package:agri_app_2/model/order_management_list.dart';
 import 'package:flutter/material.dart';
 import '../model/category.dart';
 import '../model/crop_list.dart';
@@ -20,7 +22,18 @@ final availableCrops = [
   CropList(image: 'assets/fruits.jpg', price: 'ETB 200'),
   CropList(image: 'assets/fruits.jpg', price: 'ETB 300'),
 ];
-
+final availableCrop2 = [
+  CropManagementList(image: 'assets/fruits.jpg', price: 'ETB 200', title: 'Corn'),
+  CropManagementList(image: 'assets/fruits.jpg', price: 'ETB 300', title: 'Corn'),
+  CropManagementList(image: 'assets/fruits.jpg', price: 'ETB 200', title: 'Corn'),
+  CropManagementList(image: 'assets/fruits.jpg', price: 'ETB 300', title: 'Corn'),
+];
+final availableCrop3 = [
+  OrderManagementList(image: 'assets/fruits.jpg', price: 'ETB 200', title: 'Corn'),
+  OrderManagementList(image: 'assets/fruits.jpg', price: 'ETB 300', title: 'Corn'),
+  OrderManagementList(image: 'assets/fruits.jpg', price: 'ETB 200', title: 'Corn'),
+  OrderManagementList(image: 'assets/fruits.jpg', price: 'ETB 300', title: 'Corn'),
+];
 final availableOrders = [
   OrderDisplay(
       image: 'assets/fruits.jpg',
