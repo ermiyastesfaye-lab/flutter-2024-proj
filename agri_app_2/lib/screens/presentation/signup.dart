@@ -1,29 +1,18 @@
-// ignore_for_file: prefer_const_constructors
-
+import 'package:agri_app_2/data/dummy_data.dart';
+import 'package:agri_app_2/screens/presentation/order.dart';
+import 'package:agri_app_2/widget/presentation/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(MyApp());
-}
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
-class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginPage(),
-    );
-  }
-}
-
-class LoginPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
-    
-      
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: Container(
+        padding: const EdgeInsets.only(top: 00, left: 16, right: 16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -31,57 +20,126 @@ class LoginPage extends StatelessWidget {
             Center(
               child: Text(
                 "Create Account",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,color: Colors.green),
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color:themeProvider.getTheme == darkTheme
+                              ? const Color.fromARGB(255, 0, 64, 0)
+                              : const Color.fromARGB(255, 33, 119, 50), ), // Change 'myColor.secondary' to 'Colors.blue' or define 'myColor.secondary' elsewhere.
               ),
             ),
-            Center(
+             Center(
               child: Text(
-              "Create an account to access available agricultural products",
-              style: TextStyle(fontSize: 18),
-            ),),
-           
-            SizedBox(height: 20),
-            TextFormField(
-              decoration: InputDecoration(labelText: "Email"),
+                "Create an account to access available agricultural products",
+                style: TextStyle(fontSize: 16, color: themeProvider.getTheme == darkTheme
+                              ? Colors.white
+                              : const Color.fromARGB(255, 103, 103, 103)),
+                textAlign: TextAlign.center,
+              ),
             ),
-            SizedBox(height: 10),
-            DropdownButtonFormField<String>(
-              items: ["Farmer", "Supplier", "Buyer"].map((role) {
-                return DropdownMenuItem<String>(
-                  value: role,
-                  child: Text(role),
-                );
-              }).toList(),
-              onChanged: (value) {
-                // Handle role selection
-              },
-              decoration: InputDecoration(labelText: "Role"),
+            const SizedBox(height: 100),
+            SizedBox(
+              width: 200,
+              height: 50,
+              child: TextField(
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: myColor
+                            .primary), // Change 'myColor.primary' to 'Colors.blue' or define 'myColor.primary' elsewhere.
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  labelText: 'Email',
+                ),
+              ),
             ),
-            SizedBox(height: 10),
-            TextFormField(
-              decoration: InputDecoration(labelText: "Password"),
-              obscureText: true,
+            const SizedBox(height: 20),
+            SizedBox(
+              height: 50,
+              child: DropdownButtonFormField<String>(
+                items: ["Farmer", "Buyer"].map((role) {
+                  return DropdownMenuItem<String>(
+                    value: role,
+                    child: Text(role),
+                  );
+                }).toList(),
+                onChanged: (value) {},
+                decoration: InputDecoration(
+                  labelText: "Role",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+              ),
             ),
-            SizedBox(height: 10),
-            TextFormField(
-              decoration: InputDecoration(labelText: "Confirm Password"),
-              obscureText: true,
+            const SizedBox(height: 20),
+            SizedBox(
+              width: 200,
+              height: 50,
+              child: TextField(
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: myColor
+                              .primary), // Change 'myColor.primary' to 'Colors.blue' or define 'myColor.primary' elsewhere.
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    labelText: 'Password',
+                  ),
+                  obscureText: true),
             ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                // Handle sign up button press
-              },
-              child: Text("Sign Up"),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: 200,
+              height: 50,
+              child: TextField(
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: myColor
+                              .primary), // Change 'myColor.primary' to 'Colors.blue' or define 'myColor.primary' elsewhere.
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    labelText: 'Confirm Password',
+                  ),
+                  obscureText: true),
             ),
-            SizedBox(height: 10),
-            TextButton(
-              onPressed: () {
-                // Handle "Already have an account? Log in" link
-              },
-              child: Text("Already have an account? Log in"),
+            const SizedBox(height: 20),
+            Center(
+              child: SizedBox(
+                width: 370,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/dashBoard');
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: themeProvider.getTheme == darkTheme
+                              ? const Color.fromARGB(255, 0, 64, 0)
+                              : const Color.fromARGB(255, 33, 119, 50),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10))),
+                  child: const Text(
+                    'Sign Up',
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                ),
+              ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Already have an account?'),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/logIn');
+                  },
+                  child: const Text("Log in"),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -89,23 +147,42 @@ class LoginPage extends StatelessWidget {
                   onPressed: () {
                     // Handle Google login
                   },
-                  icon: Icon(Icons.android),
+                  icon: const Icon(Icons.android),
                 ),
                 IconButton(
                   onPressed: () {
                     // Handle Facebook login
                   },
-                  icon: Icon(Icons.facebook),
+                  icon: const Icon(Icons.facebook),
                 ),
                 IconButton(
                   onPressed: () {
                     // Handle Apple login
                   },
-                  icon: Icon(Icons.apple),
+                  icon: const Icon(Icons.apple),
                 ),
               ],
             ),
+            Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Dark Mode',
+                      style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    Switch(
+                      value: themeProvider.getTheme == darkTheme,
+                      onChanged: (value) {
+                        themeProvider.toggleTheme();
+                      },
+                    ),
+                  ],
+                ),
+              ),
           ],
+          
         ),
       ),
     );
