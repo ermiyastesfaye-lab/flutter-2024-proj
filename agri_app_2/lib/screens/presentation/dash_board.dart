@@ -4,9 +4,7 @@ import 'package:agri_app_2/widget/presentation/bottom_nav_bar.dart';
 import 'package:agri_app_2/widget/presentation/category.dart';
 import 'package:agri_app_2/widget/presentation/crop_list.dart';
 import 'package:agri_app_2/widget/presentation/menu_bar.dart';
-import 'package:agri_app_2/widget/presentation/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class DashBoardScreen extends StatefulWidget {
   const DashBoardScreen({super.key});
@@ -17,7 +15,6 @@ class DashBoardScreen extends StatefulWidget {
 class _DashBoardScreen extends State<DashBoardScreen> {
   @override
   Widget build(context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
         appBar: const AppBarWidget(),
         drawer: const MenuBarWidget(),
@@ -45,9 +42,7 @@ class _DashBoardScreen extends State<DashBoardScreen> {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: themeProvider.getTheme == darkTheme
-                      ? Colors.grey[900]
-                      : const Color.fromARGB(255, 246, 246, 246),
+                  color: const Color.fromARGB(255, 246, 246, 246),
                 ),
                 padding: const EdgeInsets.all(15),
                 child: Column(
@@ -57,14 +52,13 @@ class _DashBoardScreen extends State<DashBoardScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Categories',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                                color: themeProvider.getTheme == darkTheme
-                                    ? Colors.white
-                                    : const Color.fromARGB(
-                                        255, 103, 103, 103))),
+                        Text(
+                          'Categories',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: myColor.tertiary),
+                        ),
                       ],
                     ),
                     Center(
@@ -96,9 +90,7 @@ class _DashBoardScreen extends State<DashBoardScreen> {
                           padding: const EdgeInsets.all(20),
                           width: 380,
                           decoration: BoxDecoration(
-                              color: themeProvider.getTheme == darkTheme
-                                  ? const Color.fromARGB(255, 0, 64, 0)
-                                  : const Color.fromARGB(255, 33, 119, 50),
+                              color: myColor.secondary,
                               borderRadius: BorderRadius.circular(20)),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -150,9 +142,7 @@ class _DashBoardScreen extends State<DashBoardScreen> {
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: themeProvider.getTheme == darkTheme
-                              ? Colors.white
-                              : const Color.fromARGB(255, 103, 103, 103)),
+                          color: myColor.tertiary),
                     ),
                     const SizedBox(height: 20),
                     Row(

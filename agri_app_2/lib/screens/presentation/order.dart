@@ -1,8 +1,7 @@
 import 'package:agri_app_2/data/dummy_data.dart';
-import 'package:agri_app_2/widget/presentation/Logo.dart';
-import 'package:agri_app_2/widget/presentation/theme.dart';
+import 'package:agri_app_2/widget/presentation/logo.dart';
+import 'package:agri_app_2/widget/presentation/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:agri_app_2/widget/presentation/app_bar.dart';
 import 'package:agri_app_2/widget/presentation/menu_bar.dart';
 
@@ -11,7 +10,6 @@ class OrderPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
         appBar: const AppBarWidget(),
         drawer: const MenuBarWidget(),
@@ -43,9 +41,7 @@ class OrderPage extends StatelessWidget {
                 height: 460,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: themeProvider.getTheme == darkTheme
-                      ? Colors.grey[900]
-                      : const Color.fromARGB(255, 246, 246, 246),
+                  color: const Color.fromARGB(255, 246, 246, 246),
                 ),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,12 +49,9 @@ class OrderPage extends StatelessWidget {
                       Text(
                         'Crop Details',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: themeProvider.getTheme == darkTheme
-                              ? Colors.white
-                              : const Color.fromARGB(255, 103, 103, 103),
-                        ),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: myColor.tertiary),
                       ),
                       const SizedBox(
                         height: 30,
@@ -69,11 +62,7 @@ class OrderPage extends StatelessWidget {
                           Text(
                             'Crop Name',
                             style: TextStyle(
-                              fontSize: 16,
-                              color: themeProvider.getTheme == darkTheme
-                                  ? Colors.white
-                                  : const Color.fromARGB(255, 103, 103, 103),
-                            ),
+                                fontSize: 16, color: myColor.tertiary),
                           ),
                           const SizedBox(
                             width: 40,
@@ -96,11 +85,7 @@ class OrderPage extends StatelessWidget {
                           Text(
                             'Crop Type',
                             style: TextStyle(
-                              fontSize: 16,
-                              color: themeProvider.getTheme == darkTheme
-                                  ? Colors.white
-                                  : const Color.fromARGB(255, 103, 103, 103),
-                            ),
+                                fontSize: 16, color: myColor.tertiary),
                           ),
                           const SizedBox(
                             width: 40,
@@ -123,11 +108,7 @@ class OrderPage extends StatelessWidget {
                           Text(
                             'Price(ETB)',
                             style: TextStyle(
-                              fontSize: 16,
-                              color: themeProvider.getTheme == darkTheme
-                                  ? Colors.white
-                                  : const Color.fromARGB(255, 103, 103, 103),
-                            ),
+                                fontSize: 16, color: myColor.tertiary),
                           ),
                           const SizedBox(
                             width: 40,
@@ -147,11 +128,7 @@ class OrderPage extends StatelessWidget {
                           Text(
                             'Quality',
                             style: TextStyle(
-                              fontSize: 16,
-                              color: themeProvider.getTheme == darkTheme
-                                  ? Colors.white
-                                  : const Color.fromARGB(255, 103, 103, 103),
-                            ),
+                                fontSize: 16, color: myColor.tertiary),
                           ),
                           const SizedBox(width: 150, child: QualityListItem()),
                         ],
@@ -167,12 +144,9 @@ class OrderPage extends StatelessWidget {
                               Navigator.pushNamed(context, '/marketPlace');
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  themeProvider.getTheme == darkTheme
-                                      ? const Color.fromARGB(255, 0, 64, 0)
-                                      : const Color.fromARGB(255, 33, 119, 50),
-                              // Background color
-                            ),
+                                backgroundColor: myColor.secondary
+                                // Background color
+                                ),
                             child: const Text(
                               'Order',
                               style:
@@ -183,7 +157,7 @@ class OrderPage extends StatelessWidget {
                       )
                     ]),
               ),
-            ])));
+            ])),bottomNavigationBar: const BottomNavBarWidget());
   }
 }
 

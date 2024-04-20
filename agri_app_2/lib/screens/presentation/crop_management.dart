@@ -1,27 +1,22 @@
 import 'package:agri_app_2/data/dummy_data.dart';
-import 'package:agri_app_2/widget/presentation/Logo.dart';
+import 'package:agri_app_2/widget/presentation/logo.dart';
 import 'package:agri_app_2/widget/presentation/crop_management_list.dart';
 import 'package:agri_app_2/widget/presentation/menu_bar.dart';
-import 'package:agri_app_2/widget/presentation/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:agri_app_2/widget/presentation/app_bar.dart';
 import 'package:agri_app_2/widget/presentation/bottom_nav_bar.dart';
-import 'package:provider/provider.dart';
 
 class CropMangement extends StatelessWidget {
   const CropMangement({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       appBar: const AppBarWidget(),
       drawer: const MenuBarWidget(),
       body: Container(
-        padding:
-            const EdgeInsets.all(16.0), // Add some padding around the content
-        constraints:
-            const BoxConstraints(maxWidth: 700.0), // Set a maximum width
+        padding: const EdgeInsets.all(16.0),
+        constraints: const BoxConstraints(maxWidth: 700.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -36,11 +31,7 @@ class CropMangement extends StatelessWidget {
                     Navigator.pushNamed(context, '/addCrop');
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: themeProvider.getTheme == darkTheme
-                        ? const Color.fromARGB(255, 0, 64, 0)
-                        : const Color.fromARGB(
-                            255, 33, 119, 50), // Background color
-                  ),
+                      backgroundColor: myColor.secondary),
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -58,13 +49,13 @@ class CropMangement extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text('List',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: themeProvider.getTheme == darkTheme
-                            ? Colors.white
-                            : const Color.fromARGB(255, 103, 103, 103))),
+                Text(
+                  'List',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: myColor.tertiary),
+                ),
                 const SizedBox(height: 20),
               ],
             ),

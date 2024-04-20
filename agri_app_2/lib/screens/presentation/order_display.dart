@@ -1,5 +1,5 @@
 import 'package:agri_app_2/data/dummy_data.dart';
-import 'package:agri_app_2/widget/presentation/Logo.dart';
+import 'package:agri_app_2/widget/presentation/logo.dart';
 import 'package:agri_app_2/widget/presentation/app_bar.dart';
 import 'package:agri_app_2/widget/presentation/bottom_nav_bar.dart';
 import 'package:agri_app_2/widget/presentation/menu_bar.dart';

@@ -1,19 +1,15 @@
 import 'package:agri_app_2/data/dummy_data.dart';
-import 'package:agri_app_2/widget/presentation/Logo.dart';
+import 'package:agri_app_2/widget/presentation/logo.dart';
 import 'package:agri_app_2/widget/presentation/menu_bar.dart';
-import 'package:agri_app_2/widget/presentation/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:agri_app_2/widget/presentation/app_bar.dart';
 import 'package:agri_app_2/widget/presentation/bottom_nav_bar.dart';
-import 'package:provider/provider.dart';
 
 class FarmerOrderDisplay extends StatelessWidget {
   const FarmerOrderDisplay({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
-
     return Scaffold(
       appBar: const AppBarWidget(),
       drawer: const MenuBarWidget(),
@@ -27,9 +23,12 @@ class FarmerOrderDisplay extends StatelessWidget {
               child: LogoWidget(logo: logos[1]),
             ),
             const SizedBox(height: 16),
-            const Text(
+            Text(
               'Orders',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: myColor.tertiary),
             ),
             const SizedBox(height: 16), // Add spacing between Orders and list
             Expanded(
@@ -87,9 +86,9 @@ class FarmerOrderDisplay extends StatelessWidget {
                               children: [
                                 Text(
                                   itemName,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: myColor.tertiary),
                                 ),
                                 quantity
                               ],
@@ -100,10 +99,7 @@ class FarmerOrderDisplay extends StatelessWidget {
                                 Navigator.pushNamed(context, '/marketPlace');
                               },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: themeProvider.getTheme ==
-                                        darkTheme
-                                    ? const Color.fromARGB(255, 0, 64, 0)
-                                    : const Color.fromARGB(255, 33, 119, 50),
+                                backgroundColor: myColor.secondary,
                                 foregroundColor: Colors.white,
                               ),
                               child: const Text('Sell'),

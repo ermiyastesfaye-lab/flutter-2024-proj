@@ -1,7 +1,6 @@
+import 'package:agri_app_2/data/dummy_data.dart';
 import 'package:agri_app_2/model/cop_management_list.dart';
-import 'package:agri_app_2/widget/presentation/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class CropListManagement extends StatelessWidget {
   const CropListManagement({super.key, required this.crop});
@@ -10,15 +9,13 @@ class CropListManagement extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
     return Container(
       padding: const EdgeInsets.fromLTRB(10, 10, 12, 0),
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(20),
-          color: themeProvider.getTheme == darkTheme
-              ? Colors.grey[900]
-              : Colors.white),
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.white,
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,19 +36,12 @@ class CropListManagement extends StatelessWidget {
                   Text(
                     crop.price,
                     style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: themeProvider.getTheme == darkTheme
-                            ? Colors.white
-                            : const Color.fromARGB(255, 103, 103, 103)),
+                        fontWeight: FontWeight.bold, color: myColor.tertiary),
                   ),
                   Text(
                     crop.title,
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: themeProvider.getTheme == darkTheme
-                          ? Colors.white
-                          : const Color.fromARGB(255, 103, 103, 103),
-                    ),
+                        fontWeight: FontWeight.bold, color: myColor.tertiary),
                   ),
                 ],
               ),
@@ -59,10 +49,7 @@ class CropListManagement extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/editCrop');
                 },
-                icon: Icon(Icons.shopping_cart,
-                    color: themeProvider.getTheme == darkTheme
-                        ? Colors.white
-                        : const Color.fromARGB(255, 103, 103, 103)),
+                icon: Icon(Icons.shopping_cart, color: myColor.tertiary),
                 label: const Text(''),
               ),
             ],

@@ -1,7 +1,6 @@
 import 'package:agri_app_2/data/dummy_data.dart';
-import 'package:agri_app_2/widget/presentation/Logo.dart';
-import 'package:agri_app_2/widget/presentation/theme.dart';
-import 'package:provider/provider.dart';
+import 'package:agri_app_2/widget/presentation/logo.dart';
+import 'package:agri_app_2/widget/presentation/bottom_nav_bar.dart';
 import 'order.dart';
 import 'package:flutter/material.dart';
 import 'package:agri_app_2/widget/presentation/app_bar.dart';
@@ -12,7 +11,6 @@ class UpdatePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
         appBar: const AppBarWidget(),
         drawer: const MenuBarWidget(),
@@ -73,9 +71,7 @@ class UpdatePage extends StatelessWidget {
                   height: 450,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
-                    color: themeProvider.getTheme == darkTheme
-                        ? Colors.grey[900]
-                        : const Color.fromARGB(255, 246, 246, 246),
+                    color: const Color.fromARGB(255, 246, 246, 246),
                   ),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,12 +79,9 @@ class UpdatePage extends StatelessWidget {
                         Text(
                           'Crop Details',
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: themeProvider.getTheme == darkTheme
-                                ? Colors.white
-                                : const Color.fromARGB(255, 103, 103, 103),
-                          ),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: myColor.tertiary),
                         ),
                         const SizedBox(
                           height: 30,
@@ -99,11 +92,7 @@ class UpdatePage extends StatelessWidget {
                             Text(
                               'Crop Name',
                               style: TextStyle(
-                                fontSize: 16,
-                                color: themeProvider.getTheme == darkTheme
-                                    ? Colors.white
-                                    : const Color.fromARGB(255, 103, 103, 103),
-                              ),
+                                  fontSize: 16, color: myColor.tertiary),
                             ),
                             SizedBox(
                               width: 200,
@@ -129,11 +118,7 @@ class UpdatePage extends StatelessWidget {
                             Text(
                               'Crop Type',
                               style: TextStyle(
-                                fontSize: 16,
-                                color: themeProvider.getTheme == darkTheme
-                                    ? Colors.white
-                                    : const Color.fromARGB(255, 103, 103, 103),
-                              ),
+                                  fontSize: 16, color: myColor.tertiary),
                             ),
                             SizedBox(
                               width: 200,
@@ -159,11 +144,7 @@ class UpdatePage extends StatelessWidget {
                             Text(
                               'Planting Date',
                               style: TextStyle(
-                                fontSize: 16,
-                                color: themeProvider.getTheme == darkTheme
-                                    ? Colors.white
-                                    : const Color.fromARGB(255, 103, 103, 103),
-                              ),
+                                  fontSize: 16, color: myColor.tertiary),
                             ),
                             SizedBox(
                               width: 200,
@@ -189,11 +170,7 @@ class UpdatePage extends StatelessWidget {
                             Text(
                               'Harvesting Date',
                               style: TextStyle(
-                                fontSize: 16,
-                                color: themeProvider.getTheme == darkTheme
-                                    ? Colors.white
-                                    : const Color.fromARGB(255, 103, 103, 103),
-                              ),
+                                  fontSize: 16, color: myColor.tertiary),
                             ),
                             SizedBox(
                               width: 200,
@@ -219,11 +196,7 @@ class UpdatePage extends StatelessWidget {
                             Text(
                               'Price(ETB)',
                               style: TextStyle(
-                                fontSize: 16,
-                                color: themeProvider.getTheme == darkTheme
-                                    ? Colors.white
-                                    : const Color.fromARGB(255, 103, 103, 103),
-                              ),
+                                  fontSize: 16, color: myColor.tertiary),
                             ),
                             SizedBox(
                               width: 200,
@@ -251,12 +224,9 @@ class UpdatePage extends StatelessWidget {
                                 Navigator.pushNamed(context, '/cropManagement');
                               },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: themeProvider.getTheme ==
-                                        darkTheme
-                                    ? const Color.fromARGB(255, 0, 64, 0)
-                                    : const Color.fromARGB(255, 33, 119, 50),
-                                // Background color
-                              ),
+                                  backgroundColor: myColor.secondary
+                                  // Background color
+                                  ),
                               child: const Text(
                                 'Update',
                                 style: TextStyle(
@@ -266,6 +236,7 @@ class UpdatePage extends StatelessWidget {
                           ),
                         ),
                       ]))
-            ])));
+            ])),
+        bottomNavigationBar: const BottomNavBarWidget());
   }
 }

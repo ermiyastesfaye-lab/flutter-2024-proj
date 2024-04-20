@@ -33,11 +33,11 @@ class OrderDisplayWidget extends StatelessWidget {
                     Row(
                       children: [
                         Text(order.title,
-                            style:
-                                const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18)),
                         Text('(${order.number})',
-                            style:
-                                const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18)),
                       ],
                     ),
                     const SizedBox(

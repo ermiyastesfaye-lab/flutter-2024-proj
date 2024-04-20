@@ -2,7 +2,6 @@ import 'package:agri_app_2/model/logo.dart';
 import 'package:agri_app_2/widget/presentation/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../data/dummy_data.dart';
 
 class LogoWidget extends StatelessWidget {
   const LogoWidget({super.key, required this.logo});

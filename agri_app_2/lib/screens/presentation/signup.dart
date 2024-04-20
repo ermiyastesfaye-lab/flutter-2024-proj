@@ -1,14 +1,11 @@
 import 'package:agri_app_2/data/dummy_data.dart';
-import 'package:agri_app_2/widget/presentation/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -17,50 +14,19 @@ class SignUp extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              ListTile(
-                onTap: () {
-                  themeProvider.toggleTheme();
-                },
-                leading: SizedBox(
-                  width: 24, // Adjust the width as needed
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Icon(
-                        themeProvider.getTheme == darkTheme
-                            ? Icons.light_mode
-                            : Icons.dark_mode,
-                        // You can adjust the size, color, and other properties of the icon as needed
-                        size: 24,
-                        color: themeProvider.getTheme == darkTheme
-                            ? Colors.white
-                            : const Color.fromARGB(255, 103, 103,
-                                103), // Adjust the color as needed
-                      ),
-                    ],
-                  ),
-                ),
-              ),
               Center(
                 child: Text(
                   "Create Account",
                   style: TextStyle(
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                    color: themeProvider.getTheme == darkTheme
-                        ? const Color.fromARGB(255, 0, 64, 0)
-                        : const Color.fromARGB(255, 33, 119, 50),
-                  ), // Change 'myColor.secondary' to 'Colors.blue' or define 'myColor.secondary' elsewhere.
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                      color: myColor.secondary),
                 ),
               ),
               Center(
                 child: Text(
                   "Create an account to access available agricultural products",
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: themeProvider.getTheme == darkTheme
-                          ? Colors.white
-                          : const Color.fromARGB(255, 103, 103, 103)),
+                  style: TextStyle(fontSize: 18, color: myColor.tertiary),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -71,9 +37,7 @@ class SignUp extends StatelessWidget {
                 child: TextField(
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: myColor
-                              .primary), // Change 'myColor.primary' to 'Colors.blue' or define 'myColor.primary' elsewhere.
+                      borderSide: BorderSide(color: myColor.primary),
                       borderRadius: BorderRadius.circular(5),
                     ),
                     labelText: 'Email',
@@ -106,9 +70,7 @@ class SignUp extends StatelessWidget {
                 child: TextField(
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: myColor
-                                .primary), // Change 'myColor.primary' to 'Colors.blue' or define 'myColor.primary' elsewhere.
+                        borderSide: BorderSide(color: myColor.primary),
                         borderRadius: BorderRadius.circular(5),
                       ),
                       labelText: 'Password',
@@ -122,10 +84,7 @@ class SignUp extends StatelessWidget {
                 child: TextField(
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: myColor
-                                .primary), // Change 'myColor.primary' to 'Colors.blue' or define 'myColor.primary' elsewhere.
-                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(color: myColor.primary),
                       ),
                       labelText: 'Confirm Password',
                     ),
@@ -141,9 +100,7 @@ class SignUp extends StatelessWidget {
                       Navigator.pushNamed(context, '/dashBoard');
                     },
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: themeProvider.getTheme == darkTheme
-                            ? const Color.fromARGB(255, 0, 64, 0)
-                            : const Color.fromARGB(255, 33, 119, 50),
+                        backgroundColor: myColor.secondary,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
                     child: const Text(
@@ -157,12 +114,10 @@ class SignUp extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Already have an account?',
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: themeProvider.getTheme == darkTheme
-                              ? Colors.white
-                              : const Color.fromARGB(255, 103, 103, 103))),
+                  Text(
+                    'Already have an account?',
+                    style: TextStyle(fontSize: 18, color: myColor.tertiary),
+                  ),
                   TextButton(
                     onPressed: () {
                       Navigator.pushNamed(context, '/logIn');
