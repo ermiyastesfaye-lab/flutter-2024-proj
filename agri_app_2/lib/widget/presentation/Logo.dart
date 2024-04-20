@@ -1,6 +1,7 @@
 import 'package:agri_app_2/model/logo.dart';
+import 'package:agri_app_2/widget/presentation/theme.dart';
 import 'package:flutter/material.dart';
-import '../../data/dummy_data.dart';
+import 'package:provider/provider.dart';
 
 class LogoWidget extends StatelessWidget {
   const LogoWidget({super.key, required this.logo});
@@ -9,6 +10,7 @@ class LogoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Column(
       children: [
         ClipRRect(
@@ -19,7 +21,9 @@ class LogoWidget extends StatelessWidget {
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
-                color: myColor.tertiary))
+                color: themeProvider.getTheme == darkTheme
+                    ? Colors.white
+                    : const Color.fromARGB(255, 103, 103, 103)))
       ],
     );
   }

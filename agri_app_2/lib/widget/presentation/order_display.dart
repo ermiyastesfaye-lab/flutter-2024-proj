@@ -33,11 +33,11 @@ class OrderDisplayWidget extends StatelessWidget {
                     Row(
                       children: [
                         Text(order.title,
-                            style:
-                                const TextStyle(fontWeight: FontWeight.bold)),
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18)),
                         Text('(${order.number})',
-                            style:
-                                const TextStyle(fontWeight: FontWeight.bold)),
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18)),
                       ],
                     ),
                     const SizedBox(
@@ -55,6 +55,7 @@ class OrderDisplayWidget extends StatelessWidget {
                           Text('Sold',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
+                                  fontSize: 15,
                                   color: Colors.white))
                         ],
                       ),
@@ -65,7 +66,9 @@ class OrderDisplayWidget extends StatelessWidget {
             ),
             TextButton.icon(
                 style: TextButton.styleFrom(iconColor: myColor.primary),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/marketPlace');
+                },
                 icon: const Icon(Icons.delete),
                 label: const Text(''))
           ],

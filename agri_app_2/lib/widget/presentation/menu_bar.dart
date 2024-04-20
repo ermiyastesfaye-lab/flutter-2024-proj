@@ -1,16 +1,13 @@
-import 'package:agri_app_2/screens/presentation/login.dart';
-import 'package:agri_app_2/widget/presentation/theme.dart';
+import 'package:agri_app_2/data/dummy_data.dart';
+import 'package:agri_app_2/screens/presentation/signup.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '../../screens/presentation/dash_board.dart';
-import '../../screens/presentation/order_display.dart';
 
 class MenuBarWidget extends StatelessWidget {
   const MenuBarWidget({super.key});
 
   @override
   Widget build(context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -28,46 +25,13 @@ class MenuBarWidget extends StatelessWidget {
           ),
           ListTile(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const DashBoardScreen()));
-              },
-              leading: const Icon(
-                Icons.agriculture,
-                size: 26,
-                color: Colors.black,
-              ),
-              title:
-                  const Text('Manage Crops', style: TextStyle(fontSize: 20))),
-          ListTile(
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const DashBoardScreen()));
-            },
-            leading: SizedBox(
-              width: 70, // Adjust the width as needed
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Switch(
-                    value: themeProvider.getTheme == darkTheme,
-                    onChanged: (value) {
-                      themeProvider.toggleTheme();
-                    },
-                  ),
-                ],
-              ),
-            ),
-            title: const Text('Dark Mode', style: TextStyle(fontSize: 20)),
-          ),
-          ListTile(
-              onTap: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const LoginPage()));
+                    MaterialPageRoute(builder: (context) => const SignUp()));
               },
-              leading: const Icon(
+              leading: Icon(
                 Icons.logout,
                 size: 26,
-                color: Colors.black,
+                color: myColor.tertiary,
               ),
               title: const Text('Log out', style: TextStyle(fontSize: 20))),
           const Divider(
@@ -78,10 +42,10 @@ class MenuBarWidget extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const DashBoardScreen()));
               },
-              leading: const Icon(
+              leading: Icon(
                 Icons.help,
                 size: 26,
-                color: Colors.black,
+                color: myColor.tertiary,
               ),
               title: const Text('About App', style: TextStyle(fontSize: 20))),
         ],

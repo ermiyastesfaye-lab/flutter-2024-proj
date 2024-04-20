@@ -19,13 +19,20 @@ class AppBarWidget extends StatelessWidget implements PreferredSize {
         title: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(
+        Text(
           'AgriConnect',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17, color: myColor.tertiary),
         ),
-        Icon(Icons.shopping_cart, color: themeProvider.getTheme == darkTheme
-                              ? Colors.white
-                              : const Color.fromARGB(255, 103, 103, 103))
+        TextButton.icon(
+          onPressed: () {
+            Navigator.pushNamed(context, '/orderDisplayFarmer');
+          },
+          icon: Icon(Icons.shopping_cart,
+              color: themeProvider.getTheme == darkTheme
+                  ? Colors.white
+                  : const Color.fromARGB(255, 103, 103, 103)),
+          label: const Text(''),
+        )
       ],
     ));
   }

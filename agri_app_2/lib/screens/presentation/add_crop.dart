@@ -1,13 +1,12 @@
 import 'package:agri_app_2/data/dummy_data.dart';
-import 'package:agri_app_2/widget/presentation/Logo.dart';
-import 'order.dart';
+import 'package:agri_app_2/widget/presentation/logo.dart';
+import 'package:agri_app_2/widget/presentation/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:agri_app_2/widget/presentation/app_bar.dart';
-import 'package:agri_app_2/widget/presentation/bottom_nav_bar.dart';
 import 'package:agri_app_2/widget/presentation/menu_bar.dart';
 
-class ItemPage extends StatelessWidget {
-  const ItemPage({super.key});
+class AddCrop extends StatelessWidget {
+  const AddCrop({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,13 +34,7 @@ class ItemPage extends StatelessWidget {
                       child: SizedBox(
                         width: 300,
                         child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => OrderPage()),
-                            );
-                          },
+                          onPressed: () {},
                           style: ElevatedButton.styleFrom(
                             backgroundColor:
                                 myColor.secondary, // Background color
@@ -70,10 +63,8 @@ class ItemPage extends StatelessWidget {
                 padding: const EdgeInsets.all(15),
                 height: 450,
                 decoration: BoxDecoration(
-                  border: Border.all(
-                      color: const Color.fromARGB(227, 238, 235, 235)),
                   borderRadius: BorderRadius.circular(30),
-                  color: Colors.white,
+                  color: const Color.fromARGB(255, 246, 246, 246),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -120,10 +111,8 @@ class ItemPage extends StatelessWidget {
                       children: [
                         Text(
                           'Crop Type',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: myColor.tertiary,
-                          ),
+                          style:
+                              TextStyle(fontSize: 16, color: myColor.tertiary),
                         ),
                         SizedBox(
                           width: 200,
@@ -198,10 +187,8 @@ class ItemPage extends StatelessWidget {
                       children: [
                         Text(
                           'Price(ETB)',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: myColor.tertiary,
-                          ),
+                          style:
+                              TextStyle(fontSize: 16, color: myColor.tertiary),
                         ),
                         SizedBox(
                           width: 200,
@@ -224,16 +211,12 @@ class ItemPage extends StatelessWidget {
                         width: 300,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => OrderPage()),
-                            );
+                            Navigator.pushNamed(context, '/cropManagement');
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                myColor.secondary, // Background color
-                          ),
+                              backgroundColor:
+                                  myColor.secondary // Background color
+                              ),
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
