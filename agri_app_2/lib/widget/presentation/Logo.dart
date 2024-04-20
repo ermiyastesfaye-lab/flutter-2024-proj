@@ -23,8 +23,8 @@ class LogoWidget extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
                 color: themeProvider.getTheme == darkTheme
-                            ? Colors.white
-                            : const Color.fromARGB(255, 103, 103, 103)))
+                    ? Colors.white
+                    : const Color.fromARGB(255, 103, 103, 103)))
       ],
     );
   }
