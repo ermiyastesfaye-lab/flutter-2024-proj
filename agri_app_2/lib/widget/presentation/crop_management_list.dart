@@ -17,7 +17,7 @@ class CropListManagement extends StatelessWidget {
           border: Border.all(color: Colors.grey),
           borderRadius: BorderRadius.circular(20),
           color: themeProvider.getTheme == darkTheme
-              ? const Color.fromARGB(255, 0, 64, 0)
+              ? Colors.grey[900]
               : Colors.white),
       child: Column(
         mainAxisSize: MainAxisSize.max,
